@@ -9,17 +9,17 @@ export type RootStackParamList = {
 };
 
 export type BottomTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+  About: undefined;
   Split: undefined;
+  Combine: undefined;
 };
 
-export type TabOneParamList = {
-  TabOneScreen: undefined;
+export type AboutParamList = {
+  AboutScreen: undefined;
 };
 
-export type TabTwoParamList = {
-  TabTwoScreen: undefined;
+export type TabCombineParamList = {
+  CombineScreen: undefined;
 };
 export type TabSplitParamList = {
   SplitScreen: undefined;

@@ -9,13 +9,13 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import { useColorScheme } from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import AboutScreen from '../screens/AboutScreen';
+import CombineScreen from '../screens/CombineScreen';
 import SplitScreen from '../screens/SplitScreen';
 import {
   BottomTabParamList,
-  TabOneParamList,
-  TabTwoParamList,
+  AboutParamList,
+  TabCombineParamList,
   TabSplitParamList,
 } from '../types';
 
@@ -26,21 +26,12 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="About"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
     >
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneNavigator}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
-          ),
-        }}
-      />
-      <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="About"
+        component={TabAboutNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-code" color={color} />
@@ -50,6 +41,15 @@ export default function BottomTabNavigator() {
       <BottomTab.Screen
         name="Split"
         component={TabSplitNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="ios-code" color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Combine"
+        component={TabCombineNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-code" color={color} />
@@ -71,31 +71,31 @@ function TabBarIcon(props: {
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
+const TabAboutStack = createStackNavigator<AboutParamList>();
 
-function TabOneNavigator() {
+function TabAboutNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Split Secrets' }}
+    <TabAboutStack.Navigator>
+      <TabAboutStack.Screen
+        name="AboutScreen"
+        component={AboutScreen}
+        options={{ headerTitle: 'About Shamir Secret Sharing' }}
       />
-    </TabOneStack.Navigator>
+    </TabAboutStack.Navigator>
   );
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
+const TabCombineStack = createStackNavigator<TabCombineParamList>();
 
-function TabTwoNavigator() {
+function TabCombineNavigator() {
   return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
+    <TabCombineStack.Navigator>
+      <TabCombineStack.Screen
+        name="CombineScreen"
+        component={CombineScreen}
         options={{ headerTitle: 'Combine Secrets' }}
       />
-    </TabTwoStack.Navigator>
+    </TabCombineStack.Navigator>
   );
 }
 
@@ -107,7 +107,7 @@ function TabSplitNavigator() {
       <TabSplitStack.Screen
         name="SplitScreen"
         component={SplitScreen}
-        options={{ headerTitle: 'Split Screen' }}
+        options={{ headerTitle: 'Split Secret' }}
       />
     </TabSplitStack.Navigator>
   );

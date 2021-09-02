@@ -16,14 +16,14 @@ export default {
               SplitScreen: 'split',
             },
           },
-          TabOne: {
+          About: {
             screens: {
-              TabOneScreen: 'one',
+              AboutScreen: 'about',
             },
           },
-          TabTwo: {
+          Combine: {
             screens: {
-              TabTwoScreen: 'two',
+              CombineScreen: 'combine',
             },
           },
         },
