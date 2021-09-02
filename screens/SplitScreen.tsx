@@ -1,19 +1,25 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+
+import { TextArea, Stack, Center, NativeBaseProvider } from 'native-base';
+import ButtonGroup, { Button } from 'native-base';
 
 export default function SplitScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Split-Screen</Text>
+      {/* <Text style={styles.title}>Split-Screen</Text>
       <View
         style={styles.separator}
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
-      />
-      {/* <EditScreenInfo path="/screens/SplitScreen.tsx" /> */}
+      /> */}
+
+      <Stack space={4} w="90%">
+        <TextArea h={20} placeholder="Text Area Placeholder" />
+      </Stack>
+      <Button>Split</Button>
     </View>
   );
 }

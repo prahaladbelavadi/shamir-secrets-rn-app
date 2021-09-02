@@ -8,6 +8,8 @@ import { useColorScheme } from './hooks/useColorScheme';
 import { useLoadedAssets } from './hooks/useLoadedAssets';
 import Navigation from './navigation';
 
+import { NativeBaseProvider, Text, Box } from 'native-base';
+
 export default function App() {
   const isLoadingComplete = useLoadedAssets();
   const colorScheme = useColorScheme();
@@ -17,8 +19,10 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
+        <NativeBaseProvider>
+          <Navigation colorScheme={colorScheme} />
+          <StatusBar />
+        </NativeBaseProvider>
       </SafeAreaProvider>
     );
   }
